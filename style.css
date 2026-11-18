@@ -1,0 +1,123 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #252525;
+    color: #FFFFFF;
+    min-height: 100vh;
+}
+
+header {
+    background: #3A3A3A;
+    padding: 25px 15px;
+    text-align: center;
+    border-bottom: 2px solid #505050;
+}
+
+header h1 {
+    font-size: 23px;
+    margin-bottom: 8px;
+    color: #FFFFFF;
+}
+
+header p {
+    color: #DDDDDD;
+    font-size: 14px;
+}
+
+main {
+    width: 90%;
+    max-width: 500px;
+    margin: 35px auto;
+}
+
+section {
+    background: #3A3A3A;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #505050;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #FFFFFF;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #666666;
+    border-radius: 7px;
+    background: #252525;
+    color: white;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 18px;
+    border: none;
+    border-radius: 7px;
+    background: #F28C28;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:active {
+    background: #D97706;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+nav button {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* Centralizar o botão Relatórios */
+#btnRelatorios {
+    grid-column: 1 / -1;
+    width: 50%;
+    justify-self: center;
+}
+
+#usuarioLogado {
+    text-align: center;
+}
+
+#btnSair {
+     grid-column: 1 / -1;
+    width: 50%;
+    justify-self: center;
+    background: #DC2626;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #CCCCCC;
+    font-size: 12px;
+}
+
+[hidden] {
+    display: none !important;
+}

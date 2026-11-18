@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejamento de Professores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Planejamento de Professores</h1>
+        <p>Sistema de Gestão Acadêmica EAD</p>
+    </header>
+
+    <main>
+        <section id="login">
+            <h2>Entrar no sistema</h2>
+
+            <form id="formLogin">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" required>
+
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" required>
+
+                <button type="submit">Entrar</button>
+            </form>
+        </section>
+
+        <section id="painel" hidden>
+            <h2>Bem-vindo(a)!</h2>
+            <p id="usuarioLogado"></p>
+
+           <nav>
+    
+    <button type="button" id="btnProfessores">
+        Professores
+    </button>
+    
+    <button type="button" id="btnDisciplinas">
+        Disciplinas
+    </button>
+    
+    <button type="button" id="btnCursos">
+        Cursos
+    </button>
+    
+    <button type="button" id="btnTurmas">Turmas</button>
+    
+    <button type="button" id="btnSalas">
+        Salas
+    </button>
+    
+    <button type="button" id="btnDisponibilidade">
+        Disponibilidade
+    </button>
+    
+    <button type="button" id="btnVinculos">
+        Vínculo Professor e Disciplina
+    </button>
+    
+   <button type="button" id="btnGrade">Grade semanal</button>
+    
+   <button type="button" id="btnRelatorios">Relatórios</button>
+
+            <button type="button" id="btnSair">Sair</button>
+            
+            </nav>
+            
+            </section>
+        
+        <!-- CADASTRO DE PROFESSORES -->
+<section id="telaProfessores" hidden>
+
+    <h2>Cadastro de Professores</h2>
+
+    <form id="formProfessor">
+
+        <label for="nomeProfessor">Nome completo</label>
+        <input type="text" id="nomeProfessor" required>
+
+        <label for="emailProfessor">E-mail</label>
+        <input type="email" id="emailProfessor" required>
+
+        <label for="formacaoProfessor">Formação</label>
+        <input type="text" id="formacaoProfessor" required>
+
+        <label for="cargaProfessor">Carga horária máxima semanal</label>
+        <input type="number" id="cargaProfessor" required>
+
+        <button type="submit">Cadastrar professor</button>
+
+    </form>
+
+    <h2>Professores cadastrados</h2>
+
+    <div id="listaProfessores"></div>
+
+    <button type="button" id="btnVoltarProfessores">
+        Voltar
+    </button>
+
+</section>
+
+<!-- CADASTRO DE DISCIPLINAS -->
+<section id="telaDisciplinas" hidden>
+
+    <h2>Cadastro de Disciplinas</h2>
+
+    <form id="formDisciplina">
+
+        <label for="nomeDisciplina">Nome da disciplina</label>
+        <input type="text" id="nomeDisciplina" required>
+
+        <label for="cargaDisciplina">Carga horária semanal (horas)</label>
+        <input type="number" id="cargaDisciplina" required>
+
+        <label for="periodoDisciplina">Período / Semestre</label>
+        <input type="text" id="periodoDisciplina" required>
+
+        <label for="cursoDisciplina">Curso</label>
+        <select id="cursoDisciplina" required>
+            <option value="">Selecione um curso</option>
+        </select>
+
+        <button type="submit">Cadastrar disciplina</button>
+
+    </form>
+
+    <h2>Disciplinas cadastradas</h2>
+
+    <div id="listaDisciplinas"></div>
+
+    <button type="button" id="btnVoltarDisciplinas">
+        Voltar
+    </button>
+
+</section>
+
+
+<!-- CADASTRO DE CURSOS -->
+<section id="telaCursos" hidden>
+
+    <h2>Cadastro de Cursos</h2>
+
+    <form id="formCurso">
+
+        <label for="nomeCurso">Nome do curso</label>
+        <input type="text" id="nomeCurso" required>
+
+        <label for="coordenadorCurso">Nome do coordenador</label>
+        <input type="text" id="coordenadorCurso" required>
+
+        <button type="submit">Cadastrar curso</button>
+
+    </form>
+
+    <h2>Cursos cadastrados</h2>
+
+    <div id="listaCursos"></div>
+
+    <button type="button" id="btnVoltarCursos">
+        Voltar
+    </button>
+
+</section>
+
+<!-- CADASTRO DE TURMAS -->
+<section id="telaTurmas" hidden>
+
+    <h2>Cadastro de Turmas</h2>
+
+    <form id="formTurma">
+
+        <label for="identificacaoTurma">
+            Identificação da turma
+        </label>
+
+        <input
+            type="text"
+            id="identificacaoTurma"
+            placeholder="Ex: ADS 1º Semestre"
+            required
+        >
+
+        <label for="cursoTurma">Curso</label>
+
+        <select id="cursoTurma" required>
+            <option value="">Selecione um curso</option>
+        </select>
+
+        <label for="periodoTurma">Período</label>
+
+        <input
+            type="text"
+            id="periodoTurma"
+            placeholder="Ex: 1º semestre"
+        >
+
+        <button type="submit">Cadastrar turma</button>
+
+    </form>
+
+    <h2>Turmas cadastradas</h2>
+
+    <div id="listaTurmas"></div>
+
+    <button type="button" id="btnVoltarTurmas">
+        Voltar
+    </button>
+
+</section>
+
+<!-- GRADE SEMANAL -->
+<section id="telaGrade" hidden>
+    <h2>Grade Semanal</h2>
+    
+    <button type="button" id="btnGerarSugestoes">
+    Gerar sugestões automáticas
+</button>
+
+<div id="listaSugestoes"></div>
+
+    <form id="formGrade">
+
+        <label for="professorGrade">Professor</label>
+        <select id="professorGrade" required>
+            <option value="">Selecione um professor</option>
+        </select>
+
+        <label for="disciplinaGrade">Disciplina</label>
+        <select id="disciplinaGrade" required>
+            <option value="">Selecione uma disciplina</option>
+        </select>
+
+        <label for="turmaGrade">Turma</label>
+        <select id="turmaGrade" required>
+            <option value="">Selecione uma turma</option>
+        </select>
+
+        <label for="salaGrade">Sala</label>
+        <select id="salaGrade" required>
+            <option value="">Selecione uma sala</option>
+        </select>
+
+        <label for="diaGrade">Dia da semana</label>
+        <select id="diaGrade" required>
+            <option value="">Selecione um dia</option>
+            <option value="Segunda-feira">Segunda-feira</option>
+            <option value="Terça-feira">Terça-feira</option>
+            <option value="Quarta-feira">Quarta-feira</option>
+            <option value="Quinta-feira">Quinta-feira</option>
+            <option value="Sexta-feira">Sexta-feira</option>
+            <option value="Sábado">Sábado</option>
+        </select>
+
+        <label for="inicioGrade">Horário de início</label>
+        <input type="time" id="inicioGrade" required>
+
+        <label for="fimGrade">Horário de término</label>
+        <input type="time" id="fimGrade" required>
+
+        <button type="submit">Cadastrar aula</button>
+    </form>
+
+    <h2>Aulas cadastradas</h2>
+    <div id="listaGrade"></div>
+
+    <button type="button" id="btnVoltarGrade">Voltar</button>
+</section>
+
+<!-- TELA DE RELATÓRIOS -->
+<section id="telaRelatorios" hidden>
+    <h2>Relatórios</h2>
+
+    <label for="tipoRelatorio">Tipo de relatório</label>
+
+    <select id="tipoRelatorio">
+        <option value="">Selecione um relatório</option>
+        <option value="professores">Aulas por professor</option>
+        <option value="turmas">Aulas por turma</option>
+        <option value="salas">Ocupação das salas</option>
+    </select>
+
+    <button type="button" id="btnGerarRelatorio">
+        Gerar relatório
+    </button>
+    
+    <button type="button" id="btnExportarRelatorio">
+    Exportar relatório
+</button>
+
+    <h2>Resultado</h2>
+    <div id="resultadoRelatorio"></div>
+
+    <button type="button" id="btnVoltarRelatorios">
+        Voltar
+    </button>
+</section>
+
+
+<!-- CADASTRO DE SALAS -->
+<section id="telaSalas" hidden>
+
+    <h2>Cadastro de Salas</h2>
+
+    <form id="formSala">
+
+        <label for="nomeSala">Nome ou identificação da sala</label>
+        <input type="text" id="nomeSala" required>
+
+        <label for="capacidadeSala">Capacidade de alunos</label>
+        <input type="number" id="capacidadeSala" min="1" required>
+
+        <button type="submit">Cadastrar sala</button>
+
+    </form>
+
+    <h2>Salas cadastradas</h2>
+
+    <div id="listaSalas"></div>
+
+    <button type="button" id="btnVoltarSalas">
+        Voltar
+    </button>
+
+</section>
+
+<!-- CADASTRO DE DISPONIBILIDADE -->
+<section id="telaDisponibilidade" hidden>
+
+    <h2>Disponibilidade dos Professores</h2>
+
+    <form id="formDisponibilidade">
+
+        <label for="professorDisponibilidade">
+            Professor
+        </label>
+        <select id="professorDisponibilidade" required>
+            <option value="">Selecione um professor</option>
+        </select>
+
+        <label for="diaDisponibilidade">
+            Dia da semana
+        </label>
+        <select id="diaDisponibilidade" required>
+            <option value="">Selecione o dia</option>
+            <option value="Segunda-feira">Segunda-feira</option>
+            <option value="Terça-feira">Terça-feira</option>
+            <option value="Quarta-feira">Quarta-feira</option>
+            <option value="Quinta-feira">Quinta-feira</option>
+            <option value="Sexta-feira">Sexta-feira</option>
+            <option value="Sábado">Sábado</option>
+            <option value="Domingo">Domingo</option>
+        </select>
+
+        <label for="inicioDisponibilidade">
+            Horário inicial
+        </label>
+        <input type="time" id="inicioDisponibilidade" required>
+
+        <label for="fimDisponibilidade">
+            Horário final
+        </label>
+        <input type="time" id="fimDisponibilidade" required>
+
+        <label for="restricoesDisponibilidade">
+            Restrições (opcional)
+        </label>
+        <textarea id="restricoesDisponibilidade"></textarea>
+
+        <button type="submit">Cadastrar disponibilidade</button>
+
+    </form>
+
+    <h2>Disponibilidades cadastradas</h2>
+    <div id="listaDisponibilidades"></div>
+
+    <button type="button" id="btnVoltarDisponibilidade">
+        Voltar
+    </button>
+
+</section>
+
+<!-- VINCULO PROFESSOR E DISCIPLINA -->
+<section id="telaVinculos" hidden>
+
+    <h2>Vínculo Professor e Disciplina</h2>
+
+    <form id="formVinculo">
+
+        <label for="professorVinculo">Professor</label>
+        <select id="professorVinculo" required>
+            <option value="">Selecione um professor</option>
+        </select>
+
+        <label for="disciplinaVinculo">Disciplina</label>
+        <select id="disciplinaVinculo" required>
+            <option value="">Selecione uma disciplina</option>
+        </select>
+
+        <label for="professorPrincipal">
+            Professor principal?
+        </label>
+        <select id="professorPrincipal" required>
+            <option value="">Selecione</option>
+            <option value="true">Sim</option>
+            <option value="false">Não</option>
+        </select>
+
+        <button type="submit">Cadastrar vínculo</button>
+
+    </form>
+
+    <h2>Vínculos cadastrados</h2>
+    <div id="listaVinculos"></div>
+
+    <button type="button" id="btnVoltarVinculos">
+        Voltar
+    </button>
+
+</section>
+
+
+</main>
+
+    <footer>
+        <p>Planejamento e Alocação de Professores</p>
+        <p>Jorge Malta Gonçalves</p>
+        <P>Gestão da Tecnologia da Informação</P>
+        <p>UniRios</p>
+        <p>Centro Universitário do Rio São Francisco</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
